@@ -36,6 +36,14 @@ public class SemaphoreExample extends ExampleInterface{
 			Thread se = new SemaMultiThread(i,_lsema);
 			se.start();
 		}
+		
+		try {
+			_lsema.acquire(10);
+			System.out.println("all thread is done");
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 
@@ -58,7 +66,6 @@ public class SemaphoreExample extends ExampleInterface{
 				Thread.sleep((long) (Math.random()*100));
 				mSema.release();
 				System.out.println("----------------:"+mSema.availablePermits());
-				Thread.sleep((long) (Math.random()*100));
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
