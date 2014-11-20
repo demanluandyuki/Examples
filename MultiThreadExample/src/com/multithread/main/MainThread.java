@@ -4,6 +4,8 @@ import com.multithread.cyclicbarrier.CyclicBarrierExample;
 import com.multithread.main.event.ThreadEventExample;
 import com.multithread.main.sampleExample.SampleExample;
 import com.multithread.prosumer.ProsumerExample;
+import com.multithread.pvoperator.PVExample;
+import com.multithread.readwrite.ReaderWriterExample;
 import com.multithread.semaphore.CountDownLunchExample;
 import com.multithread.semaphore.SemaphoreExample;
 
@@ -22,8 +24,19 @@ public class MainThread {
 //		   ExampleInterface cy = new CyclicBarrierExample();
 //		   cy.startDemo();
 //		   cy.startDemo2();
-		   ExampleInterface prosu = new ProsumerExample();
-		   prosu.startDemo();
+//		   ExampleInterface prosu = new ProsumerExample();
+//		   prosu.startDemo();
+		   
+//		   String aaa = "";
+//		   aaa = String.format("%1$x", 10);
+//		   System.out.println(aaa);
+		   
+//		   ExampleInterface rw = new ReaderWriterExample();
+//		   rw.startDemo();
+		   
+		   ExampleInterface pvexample = new PVExample();
+		   pvexample.startDemo();
+		   System.exit(0);
 	    } 
 }
 
