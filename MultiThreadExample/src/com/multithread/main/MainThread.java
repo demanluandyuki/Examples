@@ -6,6 +6,8 @@ import com.multithread.main.sampleExample.SampleExample;
 import com.multithread.prosumer.ProsumerExample;
 import com.multithread.pvoperator.PVExample;
 import com.multithread.readwrite.ReaderWriterExample;
+import com.multithread.readwrite.ReaderWriterExample;
+import com.multithread.readwritelock.ReadWriteLockExample;
 import com.multithread.semaphore.CountDownLunchExample;
 import com.multithread.semaphore.SemaphoreExample;
 
@@ -34,8 +36,11 @@ public class MainThread {
 //		   ExampleInterface rw = new ReaderWriterExample();
 //		   rw.startDemo();
 		   
-		   ExampleInterface pvexample = new PVExample();
-		   pvexample.startDemo();
+//		   ExampleInterface pvexample = new PVExample();
+//		   pvexample.startDemo();
+		   
+		   ExampleInterface readwritelock =new ReadWriteLockExample();
+		   readwritelock.startDemo();
 		   System.exit(0);
 	    } 
 }
