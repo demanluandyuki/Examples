@@ -1,8 +1,6 @@
 package com.jayfulmath.designpattern.samplefactory;
 
 import com.jayfulmath.designpattern.main.BasicExample;
-import com.jayfulmath.designpattern.samplefactory.operator.AbstractOperator;
-import com.jayfulmath.designpattern.samplefactory.operator.OperatorFactory;
 
 /*简单工厂模式.
  *把所有操作都抽象成一个类，然后通过需要通过多态来确定具体的操作

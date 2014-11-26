@@ -1,4 +1,4 @@
-package com.jayfulmath.designpattern.samplefactory.operator;
+package com.jayfulmath.designpattern.samplefactory;
 
 public class OperatorDelete extends AbstractOperator {
 

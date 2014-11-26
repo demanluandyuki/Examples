@@ -1,7 +1,7 @@
 package com.jayfulmath.designpattern.factory;
 
-import com.jayfulmath.designpattern.samplefactory.operator.AbstractOperator;
-import com.jayfulmath.designpattern.samplefactory.operator.OperatorAdd;
+import com.jayfulmath.designpattern.samplefactory.AbstractOperator;
+import com.jayfulmath.designpattern.samplefactory.OperatorAdd;
 
 public class AddFactory implements IOperatorFactory {
 

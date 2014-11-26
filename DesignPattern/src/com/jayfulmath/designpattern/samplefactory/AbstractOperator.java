@@ -1,4 +1,4 @@
-package com.jayfulmath.designpattern.samplefactory.operator;
+package com.jayfulmath.designpattern.samplefactory;
 
 public abstract class AbstractOperator {
 	public double NumberA = 0;
