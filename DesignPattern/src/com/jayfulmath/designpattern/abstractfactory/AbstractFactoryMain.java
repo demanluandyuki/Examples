@@ -16,14 +16,21 @@ public class AbstractFactoryMain extends BasicExample {
 		// TODO Auto-generated method stub
 		User user = new User();
 		Department department = new Department();
-		IFactory factory = new AccessFactory();
-		IUser iu = factory.CreateUser();
-		iu.insertUser(user);
-		iu.getUser(1);
+//		IFactory factory = new AccessFactory();
+		IUser iu = DataAccessReflection.CreateUser();
+		if(iu!=null)
+		{
+			iu.insertUser(user);
+			iu.getUser(1);
+		}
 		
-		IDepartment id = factory.CreateDepartment();
-		id.insertDepartment(department);
-		id.getDepartment(1);
+		IDepartment id = DataAccessReflection.CreateDepartment();
+		if(id!=null)
+		{
+			id.insertDepartment(department);
+			id.getDepartment(1);
+		}
+
 	}
 
 }
