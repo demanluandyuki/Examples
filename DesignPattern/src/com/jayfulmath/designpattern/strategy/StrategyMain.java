@@ -13,7 +13,7 @@ public class StrategyMain extends BasicExample {
 		Commodity cloths = new Commodity("cloths", 323.2, 6);
 		Commodity apple = new Commodity("apple", 15.62, 25);
 
-		cc = new CashContext("70%Sale");
+		cc = new CashContext("80%Sale");
 		double result = cc.getResult(shoes.getTotalPrice()
 				+ cloths.getTotalPrice() + apple.getTotalPrice());
 		System.out.println("Total price is:"+result);
