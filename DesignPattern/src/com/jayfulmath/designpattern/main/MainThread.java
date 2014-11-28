@@ -1,12 +1,10 @@
 package com.jayfulmath.designpattern.main;
 
-//import com.jayfulmath.designpattern.abstractfactory.AbstractFactoryMain;
-//import com.jayfulmath.designpattern.factory.FactoryMain;
-import com.jayfulmath.designpattern.strategy.StrategyMain;
+import com.jayfulmath.designpattern.decorate.DecorateMain;
 
 public class MainThread {
 	   public static void main(String args[]) {
-		   BasicExample sf = new StrategyMain();
+		   BasicExample sf = new DecorateMain();
 		   sf.startDemo();
 		   
 		   
