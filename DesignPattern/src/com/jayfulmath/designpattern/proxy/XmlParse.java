@@ -20,7 +20,7 @@ public class XmlParse implements IXmlParse {
 	DocumentBuilderFactory builderFactory = DocumentBuilderFactory
 			.newInstance();
 	
-	public HashMap<String, String> mNode = new HashMap();
+	public HashMap<String, String> mNode = new HashMap<String, String>();
 	
 	public XmlParse(String path) {
 		xmlPath = path;
