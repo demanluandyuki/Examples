@@ -20,9 +20,11 @@ public class Ball implements IProductor {
 	}
 
 	@Override
-	public String getString() {
+	public String display() {
 		// TODO Auto-generated method stub
-		return (name+function+price+" "+id);
+		String result = (name+"\t"+function+"\t"+price+"\t"+id);
+		System.out.println(result);
+		return result;
 	}
 
 	@Override
