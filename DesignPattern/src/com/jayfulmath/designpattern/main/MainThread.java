@@ -1,10 +1,11 @@
 package com.jayfulmath.designpattern.main;
 
-import com.jayfulmath.designpattern.prototype.PrototypeMain;
+import com.jayfulmath.designpattern.facade.FacadeMain;
+
 
 public class MainThread {
 	   public static void main(String args[]) {
-		   BasicExample sf = new PrototypeMain();
+		   BasicExample sf = new FacadeMain();
 		   sf.startDemo();		   
 		   
 		   System.exit(0);
