@@ -1,6 +1,6 @@
 package com.jayfulmath.designpattern.facade;
 
-public class VideoPlayer {
+class VideoPlayer {
 	
 	public void init()
 	{
