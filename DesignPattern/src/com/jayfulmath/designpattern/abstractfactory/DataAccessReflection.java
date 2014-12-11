@@ -13,6 +13,7 @@ public class DataAccessReflection {
 		try {
 			Class<?> c = Class.forName(className);
 			Constructor<?> ct = c.getConstructor();
+//			ct.getinstance();
 			result = (IUser) (ct.newInstance());
 		} catch (NoSuchMethodException |ClassNotFoundException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
 			// TODO Auto-generated catch block
