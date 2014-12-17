@@ -7,7 +7,8 @@ public class SingleMain extends BasicExample {
 	@Override
 	public void startDemo() {
 		// TODO Auto-generated method stub
-		bbb.getAaa();
+		singleClass msingle = singleClass.getInstance();
+		int c = msingle.add(1, 2);
 	}
 
 }

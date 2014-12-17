@@ -2,6 +2,10 @@ package com.jayfulmath.designpattern.statusmode;
 
 import com.jayfulmath.designpattern.main.BasicExample;
 
+
+/*状态模式：每个状态只关心自己和next状态的情况。
+ * 
+ * */
 public class StatusModeMain extends BasicExample {
 
 	@Override
