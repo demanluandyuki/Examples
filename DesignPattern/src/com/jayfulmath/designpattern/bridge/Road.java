@@ -6,14 +6,15 @@ public abstract class Road {
 	public static final int TYPE_SUBURBAN = 3;
 	
 	protected String TAGNAME;
-	
 	protected Automobile _mAuto;	
 	protected double _miles;
+	
+	public abstract double SpeedRate();
+	
 	
 	public Road(double _miles) {
 		this._miles = _miles;
 	}
-
 
 	/**
 	 * @param _mAuto the _mAuto to set
@@ -22,7 +23,7 @@ public abstract class Road {
 		this._mAuto = _mAuto;
 	}
 
-	public abstract double SpeedRate();
+
 	public double Run()
 	{
 		

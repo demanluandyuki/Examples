@@ -4,7 +4,7 @@ public class CityRoad extends Road {
 
 	public CityRoad(double _miles) {
 		super(_miles);
-		this.TAGNAME = "Suburban";
+		this.TAGNAME = "CityRoad";
 	}
 
 	@Override
