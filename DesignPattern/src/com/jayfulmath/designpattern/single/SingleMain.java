@@ -9,6 +9,7 @@ public class SingleMain extends BasicExample {
 		// TODO Auto-generated method stub
 		singleClass msingle = singleClass.getInstance();
 		int c = msingle.add(1, 2);
+		System.out.println("c is "+c);
 	}
 
 }

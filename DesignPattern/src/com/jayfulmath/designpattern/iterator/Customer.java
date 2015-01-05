@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class Customer<String> implements Iterator<String> {
+public class Customer  implements Iterator<String> {
 
 	private List<String> _mList = new ArrayList<String>();	
 	private int _mIndex = -1;
