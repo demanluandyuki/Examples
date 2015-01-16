@@ -50,6 +50,7 @@ public class DetailFragment extends Fragment {
 	@Override
 	public void onStop() {
 		super.onStop();
+		Log.d(TAG, "[onStop] name:"+name);
 	}
 
 	/* (non-Javadoc)
@@ -58,6 +59,7 @@ public class DetailFragment extends Fragment {
 	@Override
 	public void onDestroyView() {
 		super.onDestroyView();
+		Log.d(TAG, "[onDestroyView] name:"+name);
 	}
 	
 	

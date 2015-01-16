@@ -3,6 +3,7 @@ package com.joyfulmath.android4example.fragement;
 import com.joyfulmath.android4example.R;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
@@ -13,7 +14,8 @@ public class FragementActivity extends Activity implements onClickResult {
 
 	private static final String TAG = "framentdemo.FragementActivity";
 	TitleFragment mTitleFragment;
-	DetailFragment mDetailFragment;
+	DetailFragment mDetailFragmentA;
+	DetailFragment mDetailFragmentB;
 	FragmentManager fm = getFragmentManager();
 
 	/*
@@ -87,9 +89,9 @@ public class FragementActivity extends Activity implements onClickResult {
 		mTitleFragment.setmClicklistener(this);
 		mTitleFragment.SetHighLight(0);
 		transaction.replace(R.id.title, mTitleFragment);
-		mDetailFragment = new DetailFragment();
-		mDetailFragment.setName("detail_A");
-		transaction.replace(R.id.detail, mDetailFragment);
+		mDetailFragmentA = new DetailFragment();
+		mDetailFragmentA.setName("detail_A");
+		transaction.replace(R.id.detail, mDetailFragmentA);
 //		transaction.addToBackStack("detail_A");
 		transaction.commit();
 	}
@@ -100,16 +102,16 @@ public class FragementActivity extends Activity implements onClickResult {
 		FragmentTransaction transaction = fm.beginTransaction();
 		switch (index) {
 		case 0:
-			mDetailFragment = new DetailFragment();
-			mDetailFragment.setName("detail_A");
-			transaction.replace(R.id.detail, mDetailFragment);
-//			transaction.addToBackStack("detail_A");
+			mDetailFragmentA = new DetailFragment();
+			mDetailFragmentA.setName("detail_A");
+			transaction.replace(R.id.detail, mDetailFragmentA);
+			transaction.addToBackStack("detail_A");
 			break;
 		case 1:
-			mDetailFragment = new DetailFragment();
-			mDetailFragment.setName("detail_B");
-			transaction.replace(R.id.detail, mDetailFragment);
-//			transaction.addToBackStack("detail_B");
+			mDetailFragmentB = new DetailFragment();
+			mDetailFragmentB.setName("detail_B");
+			transaction.replace(R.id.detail, mDetailFragmentB);
+			transaction.addToBackStack("detail_B");
 			break;
 		}
 		transaction.commit();
