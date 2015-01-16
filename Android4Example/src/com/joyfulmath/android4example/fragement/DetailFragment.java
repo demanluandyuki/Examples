@@ -8,12 +8,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 public class DetailFragment extends Fragment {
 
 	private static final String TAG = "framentdemo.DetailFragment";
 	private String name;
-
+	TextView mDetailText;
 	/* (non-Javadoc)
 	 * @see android.app.Fragment#onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle)
 	 */
@@ -21,7 +22,9 @@ public class DetailFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		Log.d(TAG, "[onCreateView] ");
-		return inflater.inflate(R.layout.layout_detail_fragment, container, false);
+		View view = inflater.inflate(R.layout.layout_detail_fragment, container, false);
+		mDetailText = (TextView) view.findViewById(R.id.detail_text);
+		return view;
 	}
 
 	/* (non-Javadoc)
@@ -30,6 +33,7 @@ public class DetailFragment extends Fragment {
 	@Override
 	public void onStart() {
 		super.onStart();
+		mDetailText.setText(name);
 	}
 
 	/* (non-Javadoc)

@@ -24,7 +24,7 @@
 <!--             </intent-filter> -->
 <!--         </activity> -->
         <activity
-            android:name=".FragementActivity"
+            android:name="com.joyfulmath.android4example.fragement.FragementActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="fragmentExample"
             android:screenOrientation="landscape" >

@@ -15,6 +15,7 @@ public class FragementActivity extends Activity implements onClickResult {
 	TitleFragment mTitleFragment;
 	DetailFragment mDetailFragment;
 	FragmentManager fm = getFragmentManager();
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -26,6 +27,7 @@ public class FragementActivity extends Activity implements onClickResult {
 		Log.d(TAG, "[onCreate]");
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.layout_fragement_main);
+		setDefaultFragment();
 	}
 
 	/*
@@ -35,7 +37,6 @@ public class FragementActivity extends Activity implements onClickResult {
 	 */
 	@Override
 	protected void onStart() {
-		setDefaultFragment();
 		super.onStart();
 	}
 
@@ -89,36 +90,28 @@ public class FragementActivity extends Activity implements onClickResult {
 		mDetailFragment = new DetailFragment();
 		mDetailFragment.setName("detail_A");
 		transaction.replace(R.id.detail, mDetailFragment);
-		transaction.addToBackStack("detail_A");
+//		transaction.addToBackStack("detail_A");
 		transaction.commit();
 	}
 
 	@Override
 	public void onClickIndex(int index) {
-		Log.d(TAG, "[onClickIndex] index:"+index);
+		Log.d(TAG, "[onClickIndex] index:" + index);
 		FragmentTransaction transaction = fm.beginTransaction();
 		switch (index) {
 		case 0:
-			mDetailFragment = (DetailFragment) fm.getFragment(null, "detail_A");
-			if(mDetailFragment == null)
-			{
-				mDetailFragment = new DetailFragment();
-				mDetailFragment.setName("detail_A");
-				transaction.replace(R.id.detail, mDetailFragment);
-				transaction.addToBackStack("detail_A");
-			}
+			mDetailFragment = new DetailFragment();
+			mDetailFragment.setName("detail_A");
+			transaction.replace(R.id.detail, mDetailFragment);
+//			transaction.addToBackStack("detail_A");
 			break;
 		case 1:
-			mDetailFragment = (DetailFragment) fm.getFragment(null, "detail_B");
-			if(mDetailFragment == null)
-			{
-				mDetailFragment = new DetailFragment();
-				mDetailFragment.setName("detail_A");
-				transaction.replace(R.id.detail, mDetailFragment);
-				transaction.addToBackStack("detail_B");
-			}
+			mDetailFragment = new DetailFragment();
+			mDetailFragment.setName("detail_B");
+			transaction.replace(R.id.detail, mDetailFragment);
+//			transaction.addToBackStack("detail_B");
 			break;
-		}		
+		}
 		transaction.commit();
 	}
 }
