@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/grid_item_width"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/grid_result_image"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/grid_item_width"
+        android:contentDescription="@string/image_result"
+        android:scaleType="fitStart"/>
+
+    <LinearLayout
+        android:id="@+id/linear_grid_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/grid_item_linear_info_margin"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/grid_result_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:padding="@dimen/result_item_padding"
+            android:singleLine="true"
+            android:textColor="#fffcfcfc" 
+            android:background="@android:color/transparent"/>
+
+        <TextView
+            android:id="@+id/grid_result_msg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:padding="@dimen/result_item_padding"
+            android:textColor="#fffcfcfc"
+            android:background="@android:color/transparent" />
+    </LinearLayout>
+
+</FrameLayout>

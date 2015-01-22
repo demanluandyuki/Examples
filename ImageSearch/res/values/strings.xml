@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ImageSearch</string>
+    <string name="action_settings">Settings</string>
+    <string name="alert_select_title">Select Image</string>
+    <string name="background_engine_idle">Please Select Image</string>
+    <string name="background_engine_rebuild">Rebuilding Image</string>
+    <string name="background_engine_update">Updating Image</string>
+    <string name="background_engine_find">Finding Person</string>
+    <string name="search_progress_loading">Loading......</string>
+    <string name="search_result_null">Can not find person in album</string>
+    <string name="search_image_button">Select Image</string>
+    <string name="image_result">Image Result Item</string>
+</resources>

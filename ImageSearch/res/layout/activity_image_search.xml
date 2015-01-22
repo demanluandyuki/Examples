@@ -1,0 +1,52 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="0dp"
+    tools:context="com.htc.globalsearch.imagesearch.ImageSearchActivity" >
+        
+    <LinearLayout 
+        android:id="@+id/linear_satus"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/linear_status_height"
+        android:gravity="center_vertical"
+        android:background="#ff7ec0ee"
+        android:padding="@dimen/result_item_padding"
+        android:orientation="horizontal">        
+       <TextView
+           android:id="@+id/search_text"
+           android:layout_width="match_parent"
+           android:layout_height="@dimen/linear_status_height"
+           android:gravity="center"
+           android:textSize="16sp"
+           android:text="@string/background_engine_idle"
+           android:layout_weight="1.0"
+           />  
+       <ImageButton
+        android:id="@+id/search_button"
+        android:layout_width="@dimen/head_item_image_size"
+        android:layout_height="@dimen/head_item_image_size"
+        android:src="@drawable/icon_indicator_camera_l"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:contentDescription="@string/search_image_button"
+        android:layout_weight="0.1"
+        android:paddingRight="10dp"
+        />
+      
+    </LinearLayout>   
+
+    
+    <GridView android:id="@+id/grid_result"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/linear_satus"
+        android:verticalSpacing="@dimen/grid_item_space_virtual"
+        android:horizontalSpacing="@dimen/grid_item_space"
+        android:padding="0dp"
+        android:listSelector="@null"
+         />
+</RelativeLayout>
