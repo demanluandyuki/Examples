@@ -13,6 +13,7 @@ import android.view.animation.Animation.AnimationListener;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.OvershootInterpolator;
 import android.view.animation.RotateAnimation;
+import android.view.animation.ScaleAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -21,6 +22,7 @@ public class AnimationActivity extends Activity implements OnClickListener{
 	private static final String TAG = "animatatorsamples";
 	Button mAlphaAnimation = null;
 	Button mRotateAnimation = null;
+	Button mScaleAnimation = null;
 	ImageView mImage = null;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,10 @@ public class AnimationActivity extends Activity implements OnClickListener{
 		mAlphaAnimation.setOnClickListener(this);
 		mRotateAnimation = (Button) this.findViewById(R.id.btn_rotateanimation);
 		mRotateAnimation.setOnClickListener(this);
+		
+		mScaleAnimation = (Button) this.findViewById(R.id.btn_scaleanimation);
+		mScaleAnimation.setOnClickListener(this);
+		
 		mImage = (ImageView) this.findViewById(R.id.animation_img);
 	}
 
@@ -50,6 +56,9 @@ public class AnimationActivity extends Activity implements OnClickListener{
 			break;
 		case R.id.btn_rotateanimation:
 			startRotateAnimation();
+			break;
+		case R.id.btn_scaleanimation:
+			startScaleAnimation();
 			break;
 		}
 	}
@@ -92,8 +101,31 @@ public class AnimationActivity extends Activity implements OnClickListener{
 		});
 		
 		mImage.startAnimation(alphaAni);
-//		mImage.setAnimation(alphaAni);
-//		alphaAni.start();//start?
+	}
+	
+	private void startScaleAnimation()
+	{
+		float fromX; //1.0f to 0.0f
+		float toX; 
+		float fromY; 
+		float toY;
+        int pivotXType; //
+        float pivotXValue;
+        int pivotYType; 
+        float pivotYValue;	
+        //Animation.ABSOLUTE, 		//the last place with X ordinate with absolute diff 20f
+        //Animation.RELATIVE_TO_SELF,   //specified dimension to self
+        //Animation.RELATIVE_TO_PARENT.	//specified dimension to parent move 100%=1f with diff (%parent diff)
+		ScaleAnimation scaleAnim = new ScaleAnimation(1.0f, 0.5f, 1.0f, 0.5f
+//				,Animation.ABSOLUTE, 20f, Animation.RELATIVE_TO_PARENT,
+//				2f
+				);
+		//ScaleAnimation(float fromX, float toX, float fromY, float toY) 类似Animation.ABSOLUTE,且x,y =0;
+		scaleAnim.setDuration(3000);
+		scaleAnim.setFillAfter(true);
+		scaleAnim.setInterpolator(new OvershootInterpolator());
+		mImage.startAnimation(scaleAnim);
+		
 	}
 
 }

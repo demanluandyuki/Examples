@@ -7,38 +7,41 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".AnimationActivity" >
-	
-    <ImageView 
+
+    <ImageView
         android:id="@+id/animation_img"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_centerInParent="true"
-        android:src="@drawable/icon_follower"
-        />
-    
-    <LinearLayout 
+        android:src="@drawable/icon_follower" />
+
+    <LinearLayout
         android:id="@+id/action_items"
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-        <Button 
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal" >
+
+        <Button
             android:id="@+id/btn_alphaanimation"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="@string/alpha_animation"
             android:singleLine="true"
-            
-            />
-                <Button 
+            android:text="@string/alpha_animation" />
+
+        <Button
             android:id="@+id/btn_rotateanimation"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="@string/rotate_animation"
             android:singleLine="true"
-            
-            />
+            android:text="@string/rotate_animation" />
+
+        <Button
+            android:id="@+id/btn_scaleanimation"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="@string/scale_animation" />
     </LinearLayout>
-    
+
 </RelativeLayout>
