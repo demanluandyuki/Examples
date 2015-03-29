@@ -2,6 +2,7 @@ package com.joyfulmath.animatatorsamples;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.graphics.Path;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -10,10 +11,17 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
+import android.view.animation.AnimationSet;
+import android.view.animation.AnticipateOvershootInterpolator;
+import android.view.animation.BaseInterpolator;
+import android.view.animation.BounceInterpolator;
+import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.OvershootInterpolator;
+import android.view.animation.PathInterpolator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -23,6 +31,8 @@ public class AnimationActivity extends Activity implements OnClickListener{
 	Button mAlphaAnimation = null;
 	Button mRotateAnimation = null;
 	Button mScaleAnimation = null;
+	Button mTranslationAnimation = null;
+	Button mSetlationAnimation = null;
 	ImageView mImage = null;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +45,12 @@ public class AnimationActivity extends Activity implements OnClickListener{
 		
 		mScaleAnimation = (Button) this.findViewById(R.id.btn_scaleanimation);
 		mScaleAnimation.setOnClickListener(this);
+		
+		mTranslationAnimation = (Button) this.findViewById(R.id.btn_translationanimation);
+		mTranslationAnimation.setOnClickListener(this);
+		
+		mSetlationAnimation = (Button) this.findViewById(R.id.btn_setaanimation);
+		mSetlationAnimation.setOnClickListener(this);
 		
 		mImage = (ImageView) this.findViewById(R.id.animation_img);
 	}
@@ -60,11 +76,18 @@ public class AnimationActivity extends Activity implements OnClickListener{
 		case R.id.btn_scaleanimation:
 			startScaleAnimation();
 			break;
+		case R.id.btn_translationanimation:
+			startThanslationAnimation();	
+			break;
+		case R.id.btn_setaanimation:
+			startAniamitionSet();
+			break;		
 		}
 	}
 
 	private void startRotateAnimation() {
-		Log.i(TAG, "[startAlphaAnimation]");
+		Log.i(TAG, "[startRotateAnimation]");
+		//Animation.RELATIVE_TO_SELF the center of rotate
 		Animation rotateaAni = new RotateAnimation(0f, 360f,Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
 		rotateaAni.setDuration(3000);
 		rotateaAni.setFillAfter(true);
@@ -109,7 +132,7 @@ public class AnimationActivity extends Activity implements OnClickListener{
 		float toX; 
 		float fromY; 
 		float toY;
-        int pivotXType; //
+        int pivotXType; //where is the last place after scale
         float pivotXValue;
         int pivotYType; 
         float pivotYValue;	
@@ -127,5 +150,61 @@ public class AnimationActivity extends Activity implements OnClickListener{
 		mImage.startAnimation(scaleAnim);
 		
 	}
-
+	
+	private void startThanslationAnimation()
+	{
+		Log.i(TAG, "[startThanslationAnimation]");
+		//Animation.ABSOLUTE where is the last point show place
+		//the start x,y ordinate is the current place with translation 
+		TranslateAnimation anmit= new TranslateAnimation(Animation.RELATIVE_TO_PARENT,0.1f,Animation.RELATIVE_TO_PARENT,0.5f,
+				Animation.RELATIVE_TO_PARENT,0.2f,Animation.RELATIVE_TO_PARENT, 0.6f);
+		anmit.setDuration(3000);
+		anmit.setFillAfter(true);
+		anmit.setInterpolator(new BounceInterpolator());
+		mImage.startAnimation(anmit);	
+	}
+	
+	private void startAniamitionSet()
+	{
+		Log.i(TAG, "[startAniamitionSet]");
+		AnimationSet set = new AnimationSet(false);
+		ScaleAnimation scaleAnim = new ScaleAnimation(1.0f, 0.5f, 1.0f, 0.5f
+				);
+		Path path = new Path();
+		path.lineTo(0.25f, 0.25f);
+		path.lineTo(0.28f, 0.35f);
+		path.lineTo(0.38f, 0.55f);
+		path.lineTo(1.0f, 1.0f);
+//		scaleAnim.setInterpolator(new PathInterpolator(path)); //PathInterpolator是5.1才有的新功能
+		scaleAnim.setInterpolator(new MyInterpolater2());
+		AlphaAnimation alphaAni = new AlphaAnimation(1.0f, 0.5f);
+		alphaAni.setInterpolator(new BounceInterpolator());
+		set.addAnimation(alphaAni);
+		set.addAnimation(scaleAnim);
+		set.setDuration(3000);
+		set.setFillAfter(true);
+		
+		mImage.startAnimation(set);
+	}
+	
+	//baseinterpolater is basd on Added in API level 22
+	// we just suing interpolater
+	public static class MyInterpolater2 implements Interpolator {
+		
+		private static final String TAG = "MyInterpolater2";
+		private float a = -1.0f;
+		private float x2 = 2.0f;
+		/*we defined an two arc y = a(x-x1)(x-x2)
+		 * 
+		 * */
+		@Override
+		public float getInterpolation(float input) {
+			if (input <= 0.5)
+				return input * input;
+				else
+				return (1 - input) * (1 - input);
+		}		
+		
+	}
+	
 }

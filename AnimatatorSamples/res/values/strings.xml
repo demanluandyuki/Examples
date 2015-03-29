@@ -5,6 +5,8 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="alpha_animation">alpha</string>
-     <string name="rotate_animation">rotate</string>
- <string name="scale_animation">scale</string>
+    <string name="rotate_animation">rotate</string>
+    <string name="scale_animation">scale</string>
+    <string name="translation_animation">translation</string>
+    <string name="set_animation">set</string>
 </resources>

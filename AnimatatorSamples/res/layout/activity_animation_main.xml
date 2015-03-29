@@ -17,31 +17,45 @@
 
     <LinearLayout
         android:id="@+id/action_items"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal" >
 
         <Button
             android:id="@+id/btn_alphaanimation"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:text="@string/alpha_animation" />
 
         <Button
             android:id="@+id/btn_rotateanimation"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:text="@string/rotate_animation" />
 
         <Button
             android:id="@+id/btn_scaleanimation"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:text="@string/scale_animation" />
+
+        <Button
+            android:id="@+id/btn_translationanimation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="@string/translation_animation" />
+
+        <Button
+            android:id="@+id/btn_setaanimation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="@string/set_animation" />
     </LinearLayout>
 
 </RelativeLayout>

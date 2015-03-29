@@ -1,3 +1,6 @@
 .classpath
 .project
 *.jar
+*.apk
+bin
+gen
