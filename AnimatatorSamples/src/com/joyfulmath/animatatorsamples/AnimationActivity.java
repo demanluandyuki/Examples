@@ -33,7 +33,10 @@ public class AnimationActivity extends Activity implements OnClickListener{
 	Button mScaleAnimation = null;
 	Button mTranslationAnimation = null;
 	Button mSetlationAnimation = null;
+	Button mValueAnimator = null;
 	ImageView mImage = null;
+	AnimatorSample mSamples = null;
+	ValueAnimationView mValueView = null;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -52,7 +55,13 @@ public class AnimationActivity extends Activity implements OnClickListener{
 		mSetlationAnimation = (Button) this.findViewById(R.id.btn_setaanimation);
 		mSetlationAnimation.setOnClickListener(this);
 		
+		mValueAnimator = (Button) this.findViewById(R.id.btn_valueanimator);
+		mValueAnimator.setOnClickListener(this);
+		
+		mValueView = (ValueAnimationView) this.findViewById(R.id.animator_id);
+		
 		mImage = (ImageView) this.findViewById(R.id.animation_img);
+		mSamples = new AnimatorSample();
 	}
 
 	@Override
@@ -82,6 +91,9 @@ public class AnimationActivity extends Activity implements OnClickListener{
 		case R.id.btn_setaanimation:
 			startAniamitionSet();
 			break;		
+		case R.id.btn_valueanimator:
+			mValueView.startValueAmimator();
+			break;
 		}
 	}
 
@@ -175,7 +187,7 @@ public class AnimationActivity extends Activity implements OnClickListener{
 		path.lineTo(0.28f, 0.35f);
 		path.lineTo(0.38f, 0.55f);
 		path.lineTo(1.0f, 1.0f);
-//		scaleAnim.setInterpolator(new PathInterpolator(path)); //PathInterpolatorÊÇ5.1²ÅÓÐµÄÐÂ¹¦ÄÜ
+//		scaleAnim.setInterpolator(new PathInterpolator(path)); //PathInterpolatorï¿½ï¿½5.1ï¿½ï¿½ï¿½Ðµï¿½ï¿½Â¹ï¿½ï¿½ï¿½
 		scaleAnim.setInterpolator(new MyInterpolater2());
 		AlphaAnimation alphaAni = new AlphaAnimation(1.0f, 0.5f);
 		alphaAni.setInterpolator(new BounceInterpolator());

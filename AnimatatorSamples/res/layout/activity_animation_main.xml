@@ -7,14 +7,60 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".AnimationActivity" >
+    <LinearLayout
+        android:id="@+id/action_items2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal" >
 
+        <Button
+            android:id="@+id/btn_valueanimator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="@string/alpha_animation" />
+
+<!--         <Button -->
+<!--             android:id="@+id/btn_rotateanimation" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:singleLine="true" -->
+<!--             android:text="@string/rotate_animation" /> -->
+
+<!--         <Button -->
+<!--             android:id="@+id/btn_scaleanimation" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:singleLine="true" -->
+<!--             android:text="@string/scale_animation" /> -->
+
+<!--         <Button -->
+<!--             android:id="@+id/btn_translationanimation" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:singleLine="true" -->
+<!--             android:text="@string/translation_animation" /> -->
+
+<!--         <Button -->
+<!--             android:id="@+id/btn_setaanimation" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:singleLine="true" -->
+<!--             android:text="@string/set_animation" /> -->
+    </LinearLayout>
     <ImageView
         android:id="@+id/animation_img"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_centerInParent="true"
         android:src="@drawable/icon_follower" />
-
+	<com.joyfulmath.animatatorsamples.ValueAnimationView 
+	    android:id="@+id/animator_id"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_toLeftOf="@+id/animation_img"
+        android:layout_alignTop="@+id/animation_img"/>
     <LinearLayout
         android:id="@+id/action_items"
         android:layout_width="wrap_content"

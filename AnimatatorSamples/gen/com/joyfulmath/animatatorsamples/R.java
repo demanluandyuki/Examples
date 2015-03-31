@@ -25,12 +25,17 @@ public final class R {
         public static final int icon_follower=0x7f020001;
     }
     public static final class id {
-        public static final int action_items=0x7f080001;
-        public static final int action_settings=0x7f080005;
-        public static final int animation_img=0x7f080000;
-        public static final int btn_alphaanimation=0x7f080002;
-        public static final int btn_rotateanimation=0x7f080003;
-        public static final int btn_scaleanimation=0x7f080004;
+        public static final int action_items=0x7f080004;
+        public static final int action_items2=0x7f080000;
+        public static final int action_settings=0x7f08000a;
+        public static final int animation_img=0x7f080002;
+        public static final int animator_id=0x7f080003;
+        public static final int btn_alphaanimation=0x7f080005;
+        public static final int btn_rotateanimation=0x7f080006;
+        public static final int btn_scaleanimation=0x7f080007;
+        public static final int btn_setaanimation=0x7f080009;
+        public static final int btn_translationanimation=0x7f080008;
+        public static final int btn_valueanimator=0x7f080001;
     }
     public static final class layout {
         public static final int activity_animation_main=0x7f030000;
@@ -45,6 +50,8 @@ public final class R {
         public static final int hello_world=0x7f050002;
         public static final int rotate_animation=0x7f050004;
         public static final int scale_animation=0x7f050005;
+        public static final int set_animation=0x7f050007;
+        public static final int translation_animation=0x7f050006;
     }
     public static final class style {
         /** 
