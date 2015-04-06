@@ -9,4 +9,6 @@
     <string name="scale_animation">scale</string>
     <string name="translation_animation">translation</string>
     <string name="set_animation">set</string>
+    <string name="value_animation">value</string>
+    <string name="object_animation">Object</string>
 </resources>

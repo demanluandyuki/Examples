@@ -34,9 +34,11 @@ public class AnimationActivity extends Activity implements OnClickListener{
 	Button mTranslationAnimation = null;
 	Button mSetlationAnimation = null;
 	Button mValueAnimator = null;
+	Button mObjectAnimator = null;
 	ImageView mImage = null;
 	AnimatorSample mSamples = null;
 	ValueAnimationView mValueView = null;
+	ObjectAnimatorView mObjectView = null;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -59,6 +61,11 @@ public class AnimationActivity extends Activity implements OnClickListener{
 		mValueAnimator.setOnClickListener(this);
 		
 		mValueView = (ValueAnimationView) this.findViewById(R.id.animator_id);
+		
+		mObjectView = (ObjectAnimatorView) this.findViewById(R.id.animator_object_id);
+		
+		mObjectAnimator = (Button) this.findViewById(R.id.btn_objectanimator);
+		mObjectAnimator.setOnClickListener(this);
 		
 		mImage = (ImageView) this.findViewById(R.id.animation_img);
 		mSamples = new AnimatorSample();
@@ -94,6 +101,9 @@ public class AnimationActivity extends Activity implements OnClickListener{
 		case R.id.btn_valueanimator:
 			mValueView.startValueAmimator();
 			break;
+		case R.id.btn_objectanimator:
+			mObjectView.startValueAmimator();
+			break;	
 		}
 	}
 
