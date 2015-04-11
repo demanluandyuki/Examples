@@ -7,6 +7,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".AnimationActivity" >
+
     <LinearLayout
         android:id="@+id/action_items2"
         android:layout_width="wrap_content"
@@ -20,58 +21,78 @@
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:text="@string/value_animation" />
+
         <Button
             android:id="@+id/btn_objectanimator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:text="@string/object_animation" />
-<!--         <Button -->
-<!--             android:id="@+id/btn_rotateanimation" -->
-<!--             android:layout_width="wrap_content" -->
-<!--             android:layout_height="wrap_content" -->
-<!--             android:singleLine="true" -->
-<!--             android:text="@string/rotate_animation" /> -->
 
-<!--         <Button -->
-<!--             android:id="@+id/btn_scaleanimation" -->
-<!--             android:layout_width="wrap_content" -->
-<!--             android:layout_height="wrap_content" -->
-<!--             android:singleLine="true" -->
-<!--             android:text="@string/scale_animation" /> -->
+        <Button
+            android:id="@+id/btn_time_animation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="@string/time_animation" />
 
-<!--         <Button -->
-<!--             android:id="@+id/btn_translationanimation" -->
-<!--             android:layout_width="wrap_content" -->
-<!--             android:layout_height="wrap_content" -->
-<!--             android:singleLine="true" -->
-<!--             android:text="@string/translation_animation" /> -->
+        <!-- <Button -->
+        <!-- android:id="@+id/btn_scaleanimation" -->
+        <!-- android:layout_width="wrap_content" -->
+        <!-- android:layout_height="wrap_content" -->
+        <!-- android:singleLine="true" -->
+        <!-- android:text="@string/scale_animation" /> -->
 
-<!--         <Button -->
-<!--             android:id="@+id/btn_setaanimation" -->
-<!--             android:layout_width="wrap_content" -->
-<!--             android:layout_height="wrap_content" -->
-<!--             android:singleLine="true" -->
-<!--             android:text="@string/set_animation" /> -->
+
+        <!-- <Button -->
+        <!-- android:id="@+id/btn_translationanimation" -->
+        <!-- android:layout_width="wrap_content" -->
+        <!-- android:layout_height="wrap_content" -->
+        <!-- android:singleLine="true" -->
+        <!-- android:text="@string/translation_animation" /> -->
+
+
+        <!-- <Button -->
+        <!-- android:id="@+id/btn_setaanimation" -->
+        <!-- android:layout_width="wrap_content" -->
+        <!-- android:layout_height="wrap_content" -->
+        <!-- android:singleLine="true" -->
+        <!-- android:text="@string/set_animation" /> -->
     </LinearLayout>
+
     <ImageView
         android:id="@+id/animation_img"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_centerInParent="true"
         android:src="@drawable/icon_follower" />
-	<com.joyfulmath.animatatorsamples.ValueAnimationView 
-	    android:id="@+id/animator_id"
+
+    <com.joyfulmath.animatatorsamples.ValueAnimationView
+        android:id="@+id/animator_id"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_toLeftOf="@+id/animation_img"
-        android:layout_alignTop="@+id/animation_img"/>
-	<com.joyfulmath.animatatorsamples.ObjectAnimatorView
-	    android:id="@+id/animator_object_id"
-	    android:layout_width="50dp"
+        android:layout_alignTop="@+id/animation_img"
+        android:layout_toLeftOf="@+id/animation_img" />
+
+    <com.joyfulmath.animatatorsamples.ObjectAnimatorView
+        android:id="@+id/animator_object_id"
+        android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_toLeftOf="@+id/animator_id"
         android:layout_alignTop="@+id/animator_id"
+        android:layout_toLeftOf="@+id/animator_id" />
+
+    <com.joyfulmath.animatatorsamples.TimeAnimatorView
+        android:id="@+id/animator_time_id"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignTop="@+id/animator_id"
+        android:layout_toRightOf="@+id/animation_img" />
+	<com.joyfulmath.animatatorsamples.KeyFrameView
+	    android:id="@+id/animator_key_frame_view"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignTop="@+id/animator_time_id"
+        android:layout_toRightOf="@+id/animator_time_id" 
 	    />
     <LinearLayout
         android:id="@+id/action_items"

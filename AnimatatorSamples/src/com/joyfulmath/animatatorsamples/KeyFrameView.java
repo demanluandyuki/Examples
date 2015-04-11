@@ -1,6 +1,10 @@
 package com.joyfulmath.animatatorsamples;
 
+import com.joyfulmath.animatatorsamples.ObjectAnimatorView.completeText;
+
+import android.animation.Keyframe;
 import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
 import android.animation.ValueAnimator;
 import android.animation.ValueAnimator.AnimatorUpdateListener;
 import android.content.Context;
@@ -11,44 +15,69 @@ import android.graphics.Paint.FontMetrics;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.BounceInterpolator;
 
-public class ObjectAnimatorView extends View {
-	private static final String TAG = "ObjectAnimatorView";
-	private Context mContext = null;
+public class KeyFrameView extends View {
+	private static final String TAG = "KeyFrameView";
+	private Context mContext;
+	completeText stext = null;
+	float topY = -10f;
 	private Paint mPaint = null;
-	private float mX = 0;
-	float topY = 0;  
-	private ObjectAnimator mObjectAnimator = null;
-	completeText text = null;
-	public ObjectAnimatorView(Context context) {
+	private ObjectAnimator mObjectAnimator;
+	public KeyFrameView(Context context) {
 		this(context, null);
 	}
 
-	public ObjectAnimatorView(Context context, AttributeSet attrs) {
+	public KeyFrameView(Context context, AttributeSet attrs) {
 		this(context, attrs, 0);
 	}
 
-	public ObjectAnimatorView(Context context, AttributeSet attrs, int defStyle) {
+	public KeyFrameView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		Log.d(TAG, "ObjectAnimatorView");
+		Log.d(TAG, "ValueAnimationView");
 		mContext = context;
-	}
-	
-	@Override
-	protected void onDraw(Canvas canvas) {
-		super.onDraw(canvas);
-		canvas.drawColor(0xff00ff00);
-		canvas.save();
-		canvas.translate(0, 0);
-		text.draw(canvas);
-		canvas.restore();
 	}
 
 	@Override
+	protected void onDraw(Canvas canvas) {
+		// TODO Auto-generated method stub
+		stext.draw(canvas);
+	}
+	
+	public void CreateAnimator()
+	{
+		Keyframe kf0 = Keyframe.ofFloat(0, 0);
+		kf0.setInterpolator(new BounceInterpolator());
+		Keyframe kf1 = Keyframe.ofFloat(0.25f, 10);
+		kf1.setInterpolator(new AccelerateDecelerateInterpolator());
+		Keyframe kf2 = Keyframe.ofFloat(0.5f, 30);
+		Keyframe kf4 = Keyframe.ofFloat(0.75f, 50);
+		Keyframe kf3 = Keyframe.ofFloat(1f, 0);
+		
+		PropertyValuesHolder pvhRotation = PropertyValuesHolder.ofKeyframe("y", kf0, kf1, kf2, kf4, kf3);
+		mObjectAnimator = ObjectAnimator.ofPropertyValuesHolder(stext, pvhRotation);
+		mObjectAnimator.addUpdateListener(new AnimatorUpdateListener() {
+			
+			@Override
+			public void onAnimationUpdate(ValueAnimator animation) {
+				// TODO Auto-generated method stub
+				invalidate();
+			}
+		});
+	}
+	
+	public void startValueAmimator()
+	{
+		Log.d(TAG, "startValueAmimator");
+		CreateAnimator();
+		mObjectAnimator.start();
+	}
+	
+	@Override
 	protected void onAttachedToWindow() {
+		// TODO Auto-generated method stub
 		super.onAttachedToWindow();
-		Log.d(TAG, "onAttachedToWindow");
 		mPaint = new Paint();
 		mPaint.setTextSize(18);
 		mPaint.setTextAlign(Align.LEFT);
@@ -62,48 +91,25 @@ public class ObjectAnimatorView extends View {
 		Log.d(TAG, "onAttachedToWindow fontMetrics  topY:" + topY
 				+ "\t ascentY:" + ascentY + "\t descentY:" + descentY
 				+ "\t bottomY:" + bottomY);
-		text = new completeText();
-		text.setText("ObjectAnimatorView");
-		text.setX(0);
-		text.setY(0);
+		stext = new completeText();
+		stext.setText("ObjectAnimatorView");
+		stext.setX(0);
+		stext.setY(0);
 	}
 
 	@Override
 	protected void onDetachedFromWindow() {
+		// TODO Auto-generated method stub
 		super.onDetachedFromWindow();
 	}
-	
-	public void createAnimator()
-	{
-		if(mObjectAnimator == null)
-		{
-			mObjectAnimator = ObjectAnimator.ofFloat(text, "y", 0.0f,125.0f);
-			mObjectAnimator.setDuration(1000);
-			mObjectAnimator.setInterpolator(new BounceInterpolator());
-			mObjectAnimator.addUpdateListener(new AnimatorUpdateListener() {
-				
-				@Override
-				public void onAnimationUpdate(ValueAnimator animation) {
-					ObjectAnimator ami = (ObjectAnimator)animation;
-					Log.d(TAG, "animation y"+text.getY());
-					invalidate();
-				}
-			});
-		}
 
-	}
-	
-	public void startValueAmimator()
-	{
-		Log.d(TAG, "startValueAmimator");
-		createAnimator();
-		mObjectAnimator.start();
-	}
-	
+
+
 	public class completeText
 	{
 		public float x;
 		public float y;
+		
 		public String stext = null;
 		
 		public completeText()
@@ -136,9 +142,4 @@ public class ObjectAnimatorView extends View {
 		}
 		
 	}
-	
-	//animator set is different with animationset, which last one can only using at view.
-	//This class plays a set of Animator objects in the specified order. 
-	//Animations can be set up to play together, in sequence, or after a specified delay.
-	//animatorset.builder, after/before/with
 }
