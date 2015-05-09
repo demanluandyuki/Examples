@@ -1,10 +1,14 @@
 package com.joyfulmath.animatatorsamples;
 
+import com.joyfulmath.animatatorsamples.threedimension.CameraThreeDimentionActivity;
+
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Path;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.AccelerateDecelerateInterpolator;
@@ -88,6 +92,19 @@ public class AnimationActivity extends Activity implements OnClickListener{
 		getMenuInflater().inflate(R.menu.animation, menu);
 		return true;
 	}
+	
+	
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		if(item.getItemId() == R.id.action_settings)
+		{
+			startThreeCameraActivity();			
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+
 
 	@Override
 	public void onClick(View v) {
@@ -224,6 +241,11 @@ public class AnimationActivity extends Activity implements OnClickListener{
 		mImage.startAnimation(set);
 	}
 	
+	private void startThreeCameraActivity() {
+		Intent intent = new Intent(this,CameraThreeDimentionActivity.class);
+		startActivity(intent);
+	}
+	
 	//baseinterpolater is basd on Added in API level 22
 	// we just suing interpolater
 	public static class MyInterpolater2 implements Interpolator {
@@ -244,4 +266,5 @@ public class AnimationActivity extends Activity implements OnClickListener{
 		
 	}
 	
+
 }

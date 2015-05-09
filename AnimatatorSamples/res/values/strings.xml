@@ -11,5 +11,6 @@
     <string name="set_animation">set</string>
     <string name="value_animation">value</string>
     <string name="object_animation">Object</string>
-     <string name="time_animation">time</string>
+    <string name="time_animation">time</string>
+    <string name="three_dimention_lable">ThreeDimention</string>
 </resources>
