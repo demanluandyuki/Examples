@@ -1,14 +1,11 @@
-package com.joyfulmath.animatatorsamples;
 
-import com.joyfulmath.animatatorsamples.threedimension.CameraThreeDimentionActivity;
+package com.joyfulmath.animatatorsamples;
 
 import android.os.Bundle;
 import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Path;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.AccelerateDecelerateInterpolator;
@@ -92,19 +89,6 @@ public class AnimationActivity extends Activity implements OnClickListener{
 		getMenuInflater().inflate(R.menu.animation, menu);
 		return true;
 	}
-	
-	
-	
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		if(item.getItemId() == R.id.action_settings)
-		{
-			startThreeCameraActivity();			
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
-
 
 	@Override
 	public void onClick(View v) {
@@ -241,10 +225,29 @@ public class AnimationActivity extends Activity implements OnClickListener{
 		mImage.startAnimation(set);
 	}
 	
-	private void startThreeCameraActivity() {
-		Intent intent = new Intent(this,CameraThreeDimentionActivity.class);
-		startActivity(intent);
+	private void startViewPropertyAnimator()
+	{
+		Log.i(TAG, "[startViewPropertyAnimator]");
+		AnimationSet set = new AnimationSet(false);
+		ScaleAnimation scaleAnim = new ScaleAnimation(1.0f, 0.5f, 1.0f, 0.5f
+				);
+		Path path = new Path();
+		path.lineTo(0.25f, 0.25f);
+		path.lineTo(0.28f, 0.35f);
+		path.lineTo(0.38f, 0.55f);
+		path.lineTo(1.0f, 1.0f);
+//		scaleAnim.setInterpolator(new PathInterpolator(path)); //PathInterpolator 5.1
+		scaleAnim.setInterpolator(new MyInterpolater2());
+		AlphaAnimation alphaAni = new AlphaAnimation(1.0f, 0.5f);
+		alphaAni.setInterpolator(new BounceInterpolator());
+		set.addAnimation(alphaAni);
+		set.addAnimation(scaleAnim);
+		set.setDuration(3000);
+		set.setFillAfter(true);
+		
+		mImage.startAnimation(set);
 	}
+	
 	
 	//baseinterpolater is basd on Added in API level 22
 	// we just suing interpolater
@@ -266,5 +269,4 @@ public class AnimationActivity extends Activity implements OnClickListener{
 		
 	}
 	
-
 }

@@ -1,6 +1,6 @@
 /*
  * This file is auto-generated.  DO NOT MODIFY.
- * Original file: H:\\SVN_Project\\ImageSearch\\ImageSearch\\src\\com\\htc\\globalsearch\\imagesearch\\service\\aidl\\ICallBack.aidl
+ * Original file: D:\\Github\\Examples\\ImageSearch\\src\\com\\htc\\globalsearch\\imagesearch\\service\\aidl\\ICallBack.aidl
  */
 package com.htc.globalsearch.imagesearch.service.aidl;
 public interface ICallBack extends android.os.IInterface
