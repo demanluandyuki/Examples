@@ -6,7 +6,7 @@ import com.joyfulmath.study.factory.WorkMethodFactory;
 public class StudyMain {
 
 	public static void main(String[] args) {
-		IWorkMethod method = WorkMethodFactory.createMethod("FieldMethod");
+		IWorkMethod method = WorkMethodFactory.createMethod("InterviewMethod");
 		method.startWork();
 	}
 

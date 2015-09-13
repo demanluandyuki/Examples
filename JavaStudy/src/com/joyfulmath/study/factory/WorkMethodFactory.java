@@ -10,7 +10,9 @@ public class WorkMethodFactory {
 		case "FieldMethod":
 			method = new FieldMethod();
 			break;
-
+		case "InterviewMethod":
+			method = new InterviewMethod();
+			break;
 		default:
 			break;
 		}
