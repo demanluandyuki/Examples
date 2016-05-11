@@ -1,0 +1,12 @@
+http://agiledon.github.io/blog/2013/04/17/thoughtworks-developer-reading-radar/
+Thought & Leadership | 思想与领导力
+1.Becoming A Technical Leader《成为技术领导者》
+
+Architecture & Design | 架构与设计
+1.Head First Design Patterns《深入浅出设计模式》
+
+Coding Practice | 编程实践
+1.Clean Code《代码整洁之道》
+
+Methodology | 方法学
+1.User Stories Applied《用户故事与敏捷方法》
